@@ -1,6 +1,6 @@
 environment               = "poc"
 namespace                 = "globant-eks"
-region                    = "us-east-1"
+region                    = "ap-south-1"
 project_name              = "training"
 create_node_group         = true
 enabled                   = true
