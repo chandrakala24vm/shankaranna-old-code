@@ -33,7 +33,7 @@ resource "aws_security_group_rule" "eks-sg-rules" {
 
 module "eks_cluster" {
   source               = "sourcefuse/arc-eks/aws"
-  version              = "5.0.5"
+  version              = "5.0.15"
   environment          = var.environment
   name                 = "eks"
   namespace            = var.namespace
@@ -44,9 +44,11 @@ module "eks_cluster" {
   max_size             = var.max_size
   min_size             = var.min_size
 
-  subnet_ids                = data.aws_subnets.private.ids
+  # subnet_ids                = data.aws_subnets.private.ids
+  subnet_ids                = ["subnet-0cfb9c2bf8b264014", "subnet-0d724323e01a9982c"]
   region                    = var.region
-  vpc_id                    = data.aws_vpc.vpc.id
+  # vpc_id                    = data.aws_vpc.vpc.id
+  vpc_id                    = "vpc-0e30a2b48ea11369b"
   enabled                   = var.enabled
   kubernetes_version        = var.kubernetes_version
   apply_config_map_aws_auth = var.apply_config_map_aws_auth
